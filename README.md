@@ -1,4 +1,4 @@
-# Cards
+# Cards 🃏
 
 An example app used to demonstrate the basics of React, CRUD operations and styled components.
 
