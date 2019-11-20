@@ -33,7 +33,7 @@ Install the dependencies
 Your branch is automatically deployed by Netlify.  
 This means, that when you push your code to the branch, it automatically builds and deploys itself.  
 Your app can be found running on: `your-branch-name--fjscatalogue.netlify.com`.  
-Final build is [here](https://fjscatalogue.netlify.com/)
+Final build is [here](https://fjs-cards.netlify.com/)
 
 ## Authors
 
