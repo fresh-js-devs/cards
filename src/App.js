@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Users from './mocks/cards.json';
 
-import Button from './components/atoms/Button/Button';
+import Button from './components/atoms/Button';
 import Input from './components/atoms/Input';
 import Layout from './components/atoms/Layout';
 import TextArea from './components/atoms/TextArea';
@@ -19,11 +19,6 @@ const App = () => {
 
   const inputsAreEmpty = name === '' || description === '';
 
-  const handleCloseClicked = id => {
-    const filteredUsers = users.filter(u => u.id !== id);
-    setUsers(filteredUsers);
-  };
-
   const handleAddUserClicked = () => {
     const newUser = {
       id: users.length + 10,
@@ -32,6 +27,11 @@ const App = () => {
     };
 
     setUsers([newUser, ...users]);
+  };
+
+  const handleCloseClicked = id => {
+    const filteredUsers = users.filter(u => u.id !== id);
+    setUsers(filteredUsers);
   };
 
   const renderUserCards = () =>
