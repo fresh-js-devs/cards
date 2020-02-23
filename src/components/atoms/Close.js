@@ -1,13 +1,13 @@
-import styled from '@emotion/styled';
+import React from 'react';
 
-const Close = styled.p({
-  margin: 0,
-  padding: 0,
-  color: 'red',
-  position: 'absolute',
-  right: '20px',
-  cursor: 'pointer',
-  top: '20px',
-});
+import './Close.css';
+
+function Close({ onClick, children }) {
+  return (
+    <p onClick={onClick} className='close'>
+      {children}
+    </p>
+  );
+}
 
 export default Close;

@@ -1,11 +1,9 @@
-import styled from "@emotion/styled";
+import React from 'react';
 
-const Layout = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  width: '80%',
-  margin: '0 auto',
-})
+import './Layout.css';
+
+function Layout({ children }) {
+  return <div className='layout'>{children}</div>;
+}
 
 export default Layout;

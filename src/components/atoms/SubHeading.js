@@ -1,9 +1,9 @@
-import styled from '@emotion/styled';
+import React from 'react';
 
-const SubHeading = styled.h2({
-  margin: 0,
-  marginBottom: '20px',
-  padding: 0,
-});
+import './SubHeading.css';
+
+function SubHeading({ children }) {
+  return <h2 className='sub-heading'>{children}</h2>;
+}
 
 export default SubHeading;

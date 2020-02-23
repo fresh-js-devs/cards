@@ -1,8 +1,13 @@
-import styled from '@emotion/styled';
+import React from 'react';
 
-const Button = styled.button({
-  padding: '10px 20px',
-  cursor: 'pointer',
-});
+import './Button.css';
+
+function Button({ onClick, disabled, children }) {
+  return (
+    <button disabled={disabled} className='button' onClick={onClick}>
+      {children}
+    </button>
+  );
+}
 
 export default Button;

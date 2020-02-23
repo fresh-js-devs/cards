@@ -1,11 +1,9 @@
-import styled from '@emotion/styled';
+import React from 'react';
 
-const Cards = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  marginTop: '50px',
-  width: '70%',
-});
+import './Cards.css';
+
+function Cards({ children }) {
+  return <div className='cards'>{children}</div>;
+}
 
 export default Cards;

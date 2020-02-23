@@ -1,6 +1,6 @@
 # Cards 🃏
 
-An example app used to demonstrate the basics of React, CRUD operations and styled components.
+An example app used to demonstrate the basics of React, CRUD operations.
 
 ### Prerequisites
 
@@ -10,7 +10,6 @@ List of dependencies that you need to have installed on your machine
 NodeJS
 Yarn
 ```
-
 
 ### Installing
 
@@ -30,6 +29,7 @@ Install the dependencies
 2. push your solution to the branch!
 
 ## Deployment notes
+
 Your branch is automatically deployed by Netlify.  
 This means, that when you push your code to the branch, it automatically builds and deploys itself.  
 Your app can be found running on: `your-branch-name--fjscatalogue.netlify.com`.  

@@ -1,10 +1,9 @@
-import styled from '@emotion/styled';
+import React from 'react';
 
-const Form = styled.div({
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-});
+import './Form.css';
+
+function Form({ children }) {
+  return <div className='form'>{children}</div>;
+}
 
 export default Form;

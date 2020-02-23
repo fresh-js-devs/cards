@@ -1,9 +1,18 @@
-import styled from '@emotion/styled';
+import React from 'react';
 
-const TextArea = styled.textarea({
-  width: '300px',
-  minHeight: '100px',
-  marginBottom: '20px',
-});
+import './TextArea.css';
+
+function TextArea({ onChange, placeholder, value }) {
+  return (
+    <textarea
+      cols='25'
+      rows='10'
+      className='textarea'
+      value={value}
+      placeholder={placeholder}
+      onChange={onChange}
+    ></textarea>
+  );
+}
 
 export default TextArea;

@@ -1,9 +1,17 @@
-import styled from '@emotion/styled';
+import React from 'react';
 
-const StyledInput = styled.input({
-  width: '300px',
-  minHeight: '40px',
-  marginBottom: '20px',
-});
+import './Input.css';
 
-export default StyledInput;
+function Input({ value, onChange, placeholder }) {
+  return (
+    <input
+      type='text'
+      className='input'
+      onChange={onChange}
+      value={value}
+      placeholder={placeholder}
+    />
+  );
+}
+
+export default Input;

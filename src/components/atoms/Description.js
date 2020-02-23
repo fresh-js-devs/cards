@@ -1,9 +1,9 @@
-import styled from '@emotion/styled';
+import React from 'react';
 
-const Description = styled.p({
-  margin: 0,
-  padding: 0,
-  color: 'gray',
-});
+import './Description.css';
+
+function Description({ children }) {
+  return <p className='description'>{children}</p>;
+}
 
 export default Description;
