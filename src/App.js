@@ -1,35 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import styled from '@emotion/styled';
+import Users from './mocks/cards.json';
+
+import Button from './components/atoms/Button';
+import Input from './components/atoms/Input';
+import Layout from './components/atoms/Layout';
+import TextArea from './components/atoms/TextArea';
 
 import Card from './components/molecules/Card';
-import Input from './components/atoms/Input';
-import TextArea from './components/atoms/TextArea';
-import Button from './components/atoms/Button';
 
 import Cards from './components/organisms/Cards';
 import Form from './components/organisms/Form';
 
-import Users from './mocks/cards.json';
-
-const LayoutWrapper = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  width: '80%',
-  margin: '0 auto',
-});
 
 const App = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(Users);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 
   const inputsAreEmpty = name === '' || description === '';
-
-  useEffect(() => {
-    setUsers(Users);
-  }, []);
 
   const handleCloseClicked = id => {
     const filteredUsers = users.filter(u => u.id !== id);
@@ -38,11 +27,12 @@ const App = () => {
 
   const handleAddUserClicked = () => {
     const newUser = {
-      id: users.length + 1,
+      id: users.length + 10,
       name,
       description,
     };
-    setUsers([...users, newUser]);
+
+    setUsers([newUser, ...users]);
   };
 
   const renderUserCards = () =>
@@ -50,28 +40,27 @@ const App = () => {
       const { name, description, id } = user;
       return (
         <Card
-          name={name}
           description={description}
           key={id}
+          name={name}
           onCloseClick={() => handleCloseClicked(id)}
         />
       );
     });
 
   return (
-    <LayoutWrapper>
+    <Layout>
       <h1>User Cards</h1>
       <Form>
         <Input
-          value={name}
-          placeholder="name"
           onChange={e => setName(e.target.value)}
+          placeholder="name"
           type="text"
+          value={name}
         />
         <TextArea
-          placeholder="description"
           onChange={e => setDescription(e.target.value)}
-          style={{ width: '300px', minHeight: '100px', marginBottom: '20px' }}
+          placeholder="description"
           value={description}
         />
         <Button disabled={inputsAreEmpty} onClick={handleAddUserClicked}>
@@ -79,7 +68,7 @@ const App = () => {
         </Button>
       </Form>
       <Cards>{renderUserCards()}</Cards>
-    </LayoutWrapper>
+    </Layout>
   );
 };
 
