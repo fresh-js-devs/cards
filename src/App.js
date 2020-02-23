@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Users from './mocks/cards.json';
 
-import Button from './components/atoms/Button';
+import Button from './components/atoms/Button/Button';
 import Input from './components/atoms/Input';
 import Layout from './components/atoms/Layout';
 import TextArea from './components/atoms/TextArea';
@@ -11,7 +11,6 @@ import Card from './components/molecules/Card';
 
 import Cards from './components/organisms/Cards';
 import Form from './components/organisms/Form';
-
 
 const App = () => {
   const [users, setUsers] = useState(Users);
@@ -55,7 +54,6 @@ const App = () => {
         <Input
           onChange={e => setName(e.target.value)}
           placeholder="name"
-          type="text"
           value={name}
         />
         <TextArea
