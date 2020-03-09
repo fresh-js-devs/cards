@@ -39,5 +39,3 @@ Final build is [here](https://fjs-cards.netlify.com/)
 
 - \*\*\*\* - _Initial work_ - [Matus Giertl](https://github.com/MattGiertl)
 - \*\*\*\* - _Co-star_ - [Patrik Sterba](https://github.com/patrikSterbic)
-
-## Juraj
