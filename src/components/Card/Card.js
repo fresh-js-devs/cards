@@ -3,18 +3,20 @@ import React from 'react';
 import './Card.css';
 
 const Card = ({
-  name,
   id,
+  name,
   description,
   onCloseClicked,
-  onEditClicked,
-  onEditSaveClicked,
+  editedId,
   editedName,
   editedDescription,
   setEditedName,
   setEditedDescription,
-  editedId,
+  onEditClicked,
+  onEditSaveClicked,
 }) => {
+  const isEditActive = id === editedId;
+
   const renderEditView = () => {
     return (
       <div className='card-editing'>
@@ -25,13 +27,13 @@ const Card = ({
           placeholder='Name'
         />
         <textarea
-          placeholder='Description'
           value={editedDescription}
-          rows={10}
           onChange={event => setEditedDescription(event.target.value)}
+          placeholder='Description'
+          rows={10}
         ></textarea>
-
         <button onClick={onEditSaveClicked}>Save</button>
+        <button>Cancel</button>
       </div>
     );
   };
@@ -53,7 +55,7 @@ const Card = ({
 
   return (
     <div className='card'>
-      {id === editedId ? renderEditView() : renderNormalView()}
+      {isEditActive ? renderEditView() : renderNormalView()}
     </div>
   );
 };

@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 
 import Layout from './components/Layout/Layout';
 import Form from './components/Form/Form';
+import Button from './components/atoms/Button';
+import Input from './components/atoms/Input';
+import Textarea from './components/atoms/Textarea';
 
 import Users from './mocks/cards.json';
 
-import { headingStyle, inputStyle, buttonStyle } from './styles/Styles';
+import { headingStyle } from './styles/Styles';
 import Card from './components/Card/Card';
 
 import './App.css';
@@ -14,9 +17,9 @@ function App() {
   const [users, setUsers] = useState(Users);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [editedId, setEditedId] = useState(0);
   const [editedName, setEditedName] = useState('');
   const [editedDescription, setEditedDescription] = useState('');
+  const [editedId, setEditedId] = useState(0);
 
   const inputsAreEmpty = name === '' || description === '';
 
@@ -32,11 +35,6 @@ function App() {
     setDescription('');
   };
 
-  const handleCloseClicked = id => {
-    const filteredUsers = users.filter(user => user.id !== id);
-    setUsers(filteredUsers);
-  };
-
   const handleShowUserEditClicked = id => {
     setEditedId(id);
     const editedUser = users.find(user => user.id === id);
@@ -44,9 +42,9 @@ function App() {
     setEditedDescription(editedUser.description);
   };
 
-  const handleEditUserCardClicked = id => {
+  const handleEditUserCardClicked = () => {
     const editedUsers = users.map(user => {
-      if (user.id === id) {
+      if (user.id === editedId) {
         return {
           ...user,
           name: editedName,
@@ -61,6 +59,11 @@ function App() {
     setEditedId(0);
   };
 
+  const handleCloseClicked = id => {
+    const filteredUsers = users.filter(user => user.id !== id);
+    setUsers(filteredUsers);
+  };
+
   const renderUserCards = () =>
     users &&
     users.map(({ id, name, description }) => (
@@ -68,15 +71,15 @@ function App() {
         key={id}
         id={id}
         editedId={editedId}
-        name={name}
-        description={description}
-        onCloseClicked={() => handleCloseClicked(id)}
-        onEditClicked={() => handleShowUserEditClicked(id)}
-        onEditSaveClicked={() => handleEditUserCardClicked(id)}
         editedName={editedName}
         editedDescription={editedDescription}
         setEditedName={setEditedName}
         setEditedDescription={setEditedDescription}
+        name={name}
+        description={description}
+        onEditClicked={() => handleShowUserEditClicked(id)}
+        onEditSaveClicked={handleEditUserCardClicked}
+        onCloseClicked={() => handleCloseClicked(id)}
       />
     ));
 
@@ -84,28 +87,21 @@ function App() {
     <Layout>
       <h1 style={headingStyle}>User Cards</h1>
       <Form>
-        <input
+        <Input
           value={name}
           onChange={event => setName(event.target.value)}
-          style={inputStyle}
           name='name'
           placeholder='Name'
         />
-        <textarea
+        <Textarea
           value={description}
           onChange={event => setDescription(event.target.value)}
-          style={inputStyle}
           name='description'
           placeholder='Description'
-        ></textarea>
-        <button
-          className='button'
-          onClick={handleAddUserClicked}
-          style={buttonStyle}
-          disabled={inputsAreEmpty}
-        >
+        ></Textarea>
+        <Button onClick={handleAddUserClicked} disabled={inputsAreEmpty}>
           Add user
-        </button>
+        </Button>
       </Form>
       {renderUserCards()}
     </Layout>
