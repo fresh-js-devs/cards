@@ -8,6 +8,7 @@ const CardContainer = styled.div`
     border: 2px solid black;
     margin: 50px auto;  
     max-width: 400px; 
+    background-color: hotpink;
 `
 const CardHeading = styled.h1`
     text-align: flex-end; 

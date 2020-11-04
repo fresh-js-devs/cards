@@ -9,6 +9,7 @@ const FormContainer = styled.div`
     flex-direction: column;
     max-width: 400px;
     margin: 0 auto;
+    background-color: hotpink;
 `
 
 const FormHeading = styled.h1`
