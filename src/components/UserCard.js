@@ -17,10 +17,10 @@ const BioTextArea = styled.p`
     text-align: flex-end; 
 `
 
-const UserCard = ({name, bio}) => (
-<CardContainer id ="Card">
+const UserCard = ({ name, description, onDeleteUSerClick }) => ( 
+<CardContainer onClick={onDeleteUSerClick}>
     <CardHeading>{name}</CardHeading>
-    <BioTextArea>{bio}</BioTextArea>
+    <BioTextArea>{description}</BioTextArea>
 </CardContainer>
 );
 

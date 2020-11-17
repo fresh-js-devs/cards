@@ -27,12 +27,12 @@ const BioTextArea = styled.textarea`
 `
 
 
-const UserForm = () => (
+const UserForm = ({ name, bio, onNameChange, onBioChange, onAddUserClick}) => (
 <FormContainer id="form">
     <FormHeading>Cards</FormHeading>
-    <NameInput type="text" placeholder="name" />
-    <BioTextArea placeholder="Bio..." />
-    <PrimaryButton>Add user</PrimaryButton>
+    <NameInput type="text" placeholder="name" value={name} onChange={event => onNameChange(event.target.value)}/>
+    <BioTextArea placeholder="Bio..." value={bio} onChange={event => onBioChange(event.target.value)}/>
+    <PrimaryButton onClick={onAddUserClick} >Add user</PrimaryButton>
  </FormContainer>
 );
 
